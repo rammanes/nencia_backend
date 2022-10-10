@@ -20,10 +20,7 @@ let productSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'comment',
      }],
-     likes: {
-        type: Array,
-        default: [],
-    }
+     likes: [String]
 }, { timestamps: true });
 
 module.exports = {

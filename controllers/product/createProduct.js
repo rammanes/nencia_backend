@@ -20,9 +20,9 @@ const createNewProduct = async(req, res) => {
         await cloudinarySetup();
 
         const uploadedMedia = await cloudinary.uploader.upload(req.file.path, { resource_type: "auto" });
-
         image = uploadedMedia.secure_url;
     }
+    let user = req.user._id
 
     const newProduct = new Product({
         
@@ -31,7 +31,8 @@ const createNewProduct = async(req, res) => {
         productType,
         sizes,
         yards,
-        productImage: image
+        productImage: image,
+        author: user
     });
 
     if (!newProduct) return res.status(500).json({ success: false, msg: 'An error has occurred' })

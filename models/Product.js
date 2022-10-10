@@ -12,10 +12,18 @@ let productSchema = new Schema({
     }, 
     sizes: [String],
     yards: String,
-    author: [{
+    author: {
         type: Schema.Types.ObjectId,
         ref: "user",
-      }],
+      },
+      comments: [{
+        type: Schema.Types.ObjectId,
+        ref: 'comment',
+     }],
+     likes: {
+        type: Array,
+        default: [],
+    }
 }, { timestamps: true });
 
 module.exports = {

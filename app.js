@@ -3,6 +3,10 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 const routers = require('./routes/index');
 const cors = require('cors');
+// Require the library
+// First Option
+// paystack.{resource}.{method}
+
  
 const app = express();
 

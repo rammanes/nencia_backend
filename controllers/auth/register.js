@@ -19,7 +19,10 @@ const createNewUser = async (req, res, next) => {
 
     let hashedPassword = bcryptjs.hashSync(password, 12);
 
-    let secretToken = randomstring.generate(6);
+    let secretToken = randomstring.generate({
+      length: 6,
+      charset: 'numeric'
+    });
 
     const newUser = new User({
       fullname: newfullname,

@@ -7,7 +7,10 @@ const ForgotPassword = async (req, res, next) => {
   
     if (!user) return res.status(400).json({msg: 'Email Not Found'});
   
-    let token = randomstring.generate(6);
+    let token = randomstring.generate({
+        length: 6,
+        charset: 'numeric'
+      });
     user.secretToken = token
     await user.save();
   

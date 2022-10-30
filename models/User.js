@@ -9,6 +9,10 @@ let userSchema = new Schema({
   avatarSmall: String,
   avatar: String,
   secretToken: String,
+  address: [{
+    type: Schema.Types.ObjectId,
+    ref: "address"
+  }],
   confirmed: {
     type: Boolean,
     default: false

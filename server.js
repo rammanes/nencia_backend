@@ -16,12 +16,12 @@ mongoose.connect(process.env.mongo_URL)
 
  // Second Option
 // paystack.{resource}
-paystack.customer.list()
-	.then(function(body) {
-  		console.log(body);
-	})
-	.catch(function(error) {
-		console.log(error);
-	});
+// paystack.customer.list()
+// 	.then(function(body) {
+//   		console.log(body);
+// 	})
+// 	.catch(function(error) {
+// 		console.log(error);
+// 	});
 
 server.listen(port, () => console.log(`Server listenig on::: ${port}`));

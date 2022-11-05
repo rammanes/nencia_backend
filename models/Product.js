@@ -16,6 +16,10 @@ let productSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "user",
       },
+    category: {
+        type: Schema.Types.ObjectId,
+        ref: "category",
+      },
       comments: [{
         type: Schema.Types.ObjectId,
         ref: 'comment',

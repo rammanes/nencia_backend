@@ -10,7 +10,7 @@ let productSchema = new Schema({
         enum: ['Dress', 'Fabric'],
         default: 'Dress'
     }, 
-    sizes: [String],
+    sizes: {type: Array},
     yards: String,
     author: {
         type: Schema.Types.ObjectId,

@@ -9,6 +9,11 @@ let userSchema = new Schema({
   avatarSmall: String,
   avatar: String,
   secretToken: String,
+  role: {
+    type: String,
+    enum: ['Admin', 'Vendor', 'User'],
+    default: 'User'
+}, 
   address: [{
     type: Schema.Types.ObjectId,
     ref: "address"

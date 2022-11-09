@@ -5,13 +5,13 @@ const getPaymentWindow = async(req, res) => {
       let {productAmount} = req.body;
       let payment = productAmount * 100
         const user_data = {
-            email: req.user.email,
-            amount:payment,
+            email: 'itiunggrace@gmail.com',
+            amount:1000000,
           };
         
-          user_data.metadata = {
-            user_id: req.user.id,
-          };
+          // user_data.metadata = {
+          //   user_id: req.user.id,
+          // };
           let promise = initializePayment(user_data);
 
           

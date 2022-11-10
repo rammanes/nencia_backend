@@ -14,7 +14,7 @@ router.route('/create-address/:userId')
     .post(verifyToken, createAddress)
 
     router.route('/initialize-payment')
-    .post( getPaymentWindow)
+    .post(verifyToken, getPaymentWindow)
 
 // router.route('/get-products')
 //     .get(getAll);

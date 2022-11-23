@@ -2,10 +2,13 @@ const { User } = require('../../models/User');
 const bcryptjs = require('bcryptjs');
 const welcomeEmail = require('../../utils/welcomeEmail');
 const randomstring = require('randomstring');
+const cloudinary = require('cloudinary').v2;
+const cloudinarySetup = require('../../config/cloudinarySetup');
 
-const createNewUser = async (req, res, next) => {
+const createNewVendor = async (req, res, next) => {
   try {
-    let { fullname, phonenumber, email, password } = req.body;
+   
+    let { fullname, phonenumber, email, password, businessName, businessAddress, businessDescription} = req.body;
     if(!fullname || !phonenumber || !email || !password ) return res.status(400).json({success: false, msg: 'All fields are required'});
 
     let newfullname = fullname.toLowerCase().replace(/ /g, '');
@@ -17,17 +20,30 @@ const createNewUser = async (req, res, next) => {
     const user_phonenumber = await User.findOne({phonenumber});
     if(user_phonenumber) return res.status(400).json({success: false, msg: 'phone number already exists'});
 
+    let image = '';
+
+    if (req.file) {
+        await cloudinarySetup();
+
+        const uploadedMedia = await cloudinary.uploader.upload(req.file.path, { resource_type: "auto" });
+        image = uploadedMedia.secure_url;
+    }
+
     let hashedPassword = bcryptjs.hashSync(password, 12);
 
     let secretToken = randomstring.generate({
       length: 6,
       charset: 'numeric'
     });
-    let newRole = 'User'
+let newRole = 'Vendor'
     const newUser = new User({
       fullname: newfullname,
       email,
       phonenumber,
+      businessName,
+      businessAddress,
+      businessDescription,
+      businessLogo: image,
       role: newRole,
       password: hashedPassword,
       secretToken
@@ -52,4 +68,4 @@ const createNewUser = async (req, res, next) => {
   }
 }
 
-module.exports = createNewUser;
+module.exports = createNewVendor;

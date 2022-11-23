@@ -3,12 +3,17 @@ const { model, Schema } = mongoose;
 
 let userSchema = new Schema({
   fullname: String,
+  PushToken: String,
   email: String,
   phonenumber: String,
   password: String,
-  avatarSmall: String,
-  avatar: String,
+  businessLogo: String,
+  ProfilePhoto: String,
   secretToken: String,
+  businessName: String,
+  businessAddress: String,
+  businessDescription: String,
+
   role: {
     type: String,
     enum: ['Admin', 'Vendor', 'User'],

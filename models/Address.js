@@ -8,7 +8,11 @@ let addressSchema = new Schema({
   city: String,
   state: String,
   country: String,
-  zipcode: String
+  zipcode: String,
+  user:{
+    type: Schema.Types.ObjectId,
+    ref: 'user'
+},
 
 }, { timestamps: true });
 

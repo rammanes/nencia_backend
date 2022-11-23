@@ -4,7 +4,7 @@ const { model, Schema } = mongoose;
 let addressSchema = new Schema({
   fullname: String,
   phonenumber: String,
- address: String,
+  address: String,
   city: String,
   state: String,
   country: String,

@@ -1,23 +1,16 @@
-const { Product } = require('../../models/Product');
+const { Address } = require('../../models/Address');
 
-const getAllProducts = async(req, res) => {
+const getUserAddress = async(req, res) => {
     try {
-        const allProducts = await Product.find({})
-        .populate("author")
-        .populate({
-           path: 'comments',
-    
-           options: {sort : {_id: -1}},
-           populate: {
-               path: 'user'
-           }
-        });
-        if (!allProducts) return res.status(500).json({ success: false, msg: 'No products found' });
+        let { userId } = req.params;
+        let address = await Address.find({user: userId}).sort({_id: -1});
+       
+        if (!address) return res.status(500).json({ success: false, msg: 'No Address found for this user' });
 
         return res.status(200).json({
             success: true,
-            msg: 'All products',
-            allProducts
+            msg: 'All Address',
+            address
 
         })
 
@@ -26,4 +19,4 @@ const getAllProducts = async(req, res) => {
     }
 }
 
-module.exports = getAllProducts;
+module.exports = getUserAddress;

@@ -6,7 +6,9 @@ const createAddress = async(req, res) => {
         let { fullname, phonenumber, address, city, state, country, zipcode } = req.body
         let { userId } = req.params;
         let user = await User.findOne({_id: userId});
+        let addressOwner = req.user._id
         const newAddress = new Address({
+          user: addressOwner,
             fullname,
              phonenumber, 
              address,

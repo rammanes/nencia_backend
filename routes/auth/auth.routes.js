@@ -7,6 +7,7 @@ const loginUser = require('../../controllers/auth/login');
 const confirmUserEmail = require('../../controllers/auth/confirmEmail');
 const forgotPassword = require('../../controllers/auth/forgotPassword')
 const resetPassword = require('../../controllers/auth/resetPassword')
+const addProfilePicture = require('../../controllers/auth/ProfilePicture')
 
 
 
@@ -22,5 +23,6 @@ router.post('/confirm-user', confirmUserEmail);
 router.post('/forgot-password', forgotPassword);
 
 router.post('/reset-password/:token', resetPassword);
+router.post('/upload-profile-picture/:userId', upload.single('ProfilePicture'), addProfilePicture);
 
 module.exports = router;

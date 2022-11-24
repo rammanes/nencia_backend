@@ -4,6 +4,7 @@ const upload = require('../../config/multerSetup');
 const verifyToken = require('../../middlewares/authjwt')
 const createProduct = require('../../controllers/product/createProduct');
 const getAll = require('../../controllers/product/getProducts');
+const getVendorProduct = require('../../controllers/product/getVendorProducts')
 const createComment = require('../../controllers/product/createComment');
 const postLike = require('../../controllers/product/createLike');
 const createCategory = require('../../controllers/product/createCategory');
@@ -20,6 +21,10 @@ router.route('/create-category')
 
 router.route('/get-products')
     .get(getAll);
+
+router.route('/get-vendor-products/:userId')
+    .get(getVendorProduct);
+
 router.route('/create-comment/:postId')
     .post(verifyToken,  createComment)
 

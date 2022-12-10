@@ -8,7 +8,7 @@ const confirmUserEmail = require('../../controllers/auth/confirmEmail');
 const forgotPassword = require('../../controllers/auth/forgotPassword')
 const resetPassword = require('../../controllers/auth/resetPassword')
 const addProfilePicture = require('../../controllers/auth/ProfilePicture')
-
+const getUser = require('../../controllers/auth/getUser')
 
 
 
@@ -17,6 +17,8 @@ router.post('/register-vendor', upload.single('businessLogo'), createNewVendor);
 
 
 router.post('/login', loginUser);
+router.route('/get-user/:userId')
+    .get(getUser); 
 
 router.post('/confirm-user', confirmUserEmail);
 

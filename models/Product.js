@@ -24,7 +24,11 @@ let productSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'comment',
      }],
-     likes: [String]
+     likes: [{
+      users: {
+      type: Schema.Types.ObjectId,
+      ref: 'user',}
+    }]
 }, { timestamps: true });
 
 module.exports = {

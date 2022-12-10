@@ -40,6 +40,9 @@ categories:[
     type: Schema.Types.ObjectId,
     ref: 'user'
 },
+attendees: [{
+  user: {type: Schema.Types.ObjectId, ref: 'user'},
+}]
 
 }, { timestamps: true });
 

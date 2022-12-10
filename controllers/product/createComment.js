@@ -6,6 +6,7 @@ const createComment = async(req, res) => {
         const { comment } = req.body;
         let { postId } = req.params;
         let post = await Product.findOne({_id: postId});
+        if (!post) return res.status(500).json({ success: false, msg: 'No Comment found' });
         const newComment = new Comment({
          comment,
          user: req.user._id

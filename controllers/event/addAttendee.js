@@ -10,20 +10,17 @@ const addAttendee = async (req, res) => {
     if (!event) return res.status(500).json({ success: false, msg: 'No Event found' });
 
 
-    const newEvent = new Event({
-        attendees:[{
-            user
-        }] 
-    });
 
-    if (!newEvent) return res.status(500).json({ success: false, msg: 'An error has occurred' })
-
-    await newEvent.save();
+    event.attendees.push({ 
+        user
+     });
+    await event.save();
+    // await newEvent.save();
 
     return res.status(201).json({
         success: true,
         msg: 'Event created',
-        newEvent
+    event
     });
 }
 

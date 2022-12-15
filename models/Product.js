@@ -25,7 +25,7 @@ let productSchema = new Schema({
         ref: 'comment',
      }],
      likes: [{
-      users: {
+      user: {
       type: Schema.Types.ObjectId,
       ref: 'user',}
     }]

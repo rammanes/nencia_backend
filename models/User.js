@@ -23,6 +23,9 @@ let userSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "address"
   }],
+ followers: [{
+    user: {type: Schema.Types.ObjectId, ref: 'user'},
+  }],
   confirmed: {
     type: Boolean,
     default: false

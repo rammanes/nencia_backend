@@ -8,7 +8,9 @@ const getVendorProduct = require('../../controllers/product/getVendorProducts')
 const createComment = require('../../controllers/product/createComment');
 const postLike = require('../../controllers/product/createLike');
 const createCategory = require('../../controllers/product/createCategory');
-const getAllCategories = require('../../controllers/product/getCategory')
+const getAllCategories = require('../../controllers/product/getCategory');
+const getProduct = require('../../controllers/product/getProduct')
+
 
 router.route('/create-product')
     .post(verifyToken, upload.single('postMedia'), createProduct)
@@ -21,6 +23,9 @@ router.route('/create-category')
 
 router.route('/get-products')
     .get(getAll);
+
+router.route('/get-product/:productId')
+    .get(getProduct);
 
 router.route('/get-vendor-products/:userId')
     .get(getVendorProduct);

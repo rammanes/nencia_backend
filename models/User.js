@@ -13,6 +13,7 @@ let userSchema = new Schema({
   businessName: String,
   businessAddress: String,
   businessDescription: String,
+  CAC_Reg_No: String,
 
   role: {
     type: String,
@@ -25,7 +26,9 @@ accountDetails:{
   accountName: String,
   recipientCode: String
   },
-
+    refundPolicy: String,
+    dressAdjustmentPolicy: String,
+  sizeChart: String,
   address: [{
     type: Schema.Types.ObjectId,
     ref: "address"

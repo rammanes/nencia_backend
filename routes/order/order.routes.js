@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const verifyToken = require('../../middlewares/authjwt')
 const getPaymentWindow = require('../../controllers/payment/initialize')
-const getBanks = require('../../controllers/payment/getBanks')
 const createAddress = require('../../controllers/order/createAddress');
 const getUserAddress = require('../../controllers/order/getAddress')
 // const getAll = require('../../controllers/product/getProducts');
@@ -16,8 +15,6 @@ router.route('/create-address/:userId')
     router.route('/initialize-payment')
     .post(verifyToken, getPaymentWindow)
 
-    router.route('/get-banks')
-    .get(getBanks);
 
 router.route('/get-address/:userId')
     .get(getUserAddress);

@@ -18,7 +18,14 @@ let userSchema = new Schema({
     type: String,
     enum: ['Admin', 'Vendor', 'User'],
     default: 'User'
-}, 
+},
+accountDetails:{
+  bankName: String,
+  accountNumber: String,
+  accountName: String,
+  recipientCode: String
+  },
+
   address: [{
     type: Schema.Types.ObjectId,
     ref: "address"

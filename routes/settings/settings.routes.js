@@ -3,6 +3,7 @@ const router = express.Router();
 const verifyToken = require('../../middlewares/authjwt')
 const getBanks = require('../../controllers/settings/getBanks')
 const verifyAccount = require('../../controllers/settings/verifyAccount')
+const addBankDetails = require('../../controllers/settings/addBankDetails')
 
 
 
@@ -14,7 +15,8 @@ const verifyAccount = require('../../controllers/settings/verifyAccount')
     router.route('/verify-account')
     .get(verifyAccount)
 
-
+    router.route('/add-bank-details')
+    .post(addBankDetails)
 
 // router.route('/create-comment/:postId')
 //     .post(verifyToken,  createComment)

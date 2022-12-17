@@ -6,10 +6,23 @@ let eventSchema = new Schema({
   eventName: String,
   eventLocation: String,
   description: String,
-  startDate: String,
-  endDate: String,
-  startTime: String,
-  endTime: String,
+  startDate: {
+    type: Date,
+  required: true
+},
+  endDate: {
+    type: Date,
+  required: true
+},
+  startTime: {
+    type: Date,
+  required: true
+},
+  endTime: {
+    type: Date,
+  required: true
+},
+  shareUrl: String,
   ticketType: {
     type: String,
     enum: ['Free', 'Paid'],

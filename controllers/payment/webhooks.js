@@ -1,5 +1,5 @@
 const crypto = require('crypto');
-const paystackSecretKey = process.env.paystackSecretKey;
+const paystackSecretKey = process.env.PAYSTACK_SECRET_KEY;
 
 
 // @desc  webhook to paystack
@@ -19,6 +19,7 @@ const paystackWebHook = async (req, res, next) =>{
       // Process the webhook event
       switch (req.body.event) {
         case 'charge.success':
+          console.log(req.body)
           // A payment was successful, so update your database or take other actions
           break;
         case 'charge.failed':

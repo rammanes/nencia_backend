@@ -34,7 +34,7 @@ const createNewVendor = async (req, res, next) => {
     });
 let newRole = 'Vendor'
     const newUser = new User({
-      fullname: newfullname,
+      fullname,
       email,
       phonenumber,
       businessName,

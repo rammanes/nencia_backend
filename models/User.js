@@ -8,7 +8,10 @@ let userSchema = new Schema({
   phonenumber: String,
   password: String,
   businessLogo: String,
-  ProfilePicture: String,
+  ProfilePicture:{ 
+    type: String,
+    default: null
+  },
   secretToken: String,
   businessName: String,
   businessAddress: String,

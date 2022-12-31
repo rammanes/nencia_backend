@@ -19,10 +19,11 @@ const paystackWebHook = async (req, res, next) =>{
       // Process the webhook event
       switch (req.body.event) {
         case 'charge.success':
-          console.log(req.body)
+          console.log(req.body.data)
           // A payment was successful, so update your database or take other actions
           break;
         case 'charge.failed':
+          console.log(req.body.data)
           // A payment failed, so update your database or take other actions
           break;
         // Handle other events as needed

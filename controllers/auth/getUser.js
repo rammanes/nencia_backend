@@ -8,7 +8,10 @@ const getUser = async(req, res) => {
         return res.status(201).json({
           success: true,
           msg: 'User successful',
-          user
+          user: {
+            ...user._doc,
+            password: ''
+          }
       });
       }catch(err) {
         console.log(err);

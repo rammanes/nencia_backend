@@ -6,8 +6,8 @@ let eventSchema = new Schema({
   eventName: String,
   eventLocation: String,
   description: String,
-  startDate: Date, 
-  endDate: Date,
+  startDate: String, 
+  endDate: String,
   shareUrl: String,
   ticketType: {
     type: String,

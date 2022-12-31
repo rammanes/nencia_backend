@@ -30,7 +30,6 @@ const createNewUser = async (req, res, next) => {
       phonenumber,
       role: newRole,
       password: hashedPassword,
-      ProfilePicture: null,
       secretToken
     });
 

@@ -11,9 +11,6 @@ const createNewVendor = async (req, res, next) => {
     let { fullname, phonenumber, email, password, businessName, businessAddress, businessDescription} = req.body;
     if(!fullname || !phonenumber || !email || !password ) return res.status(400).json({success: false, msg: 'All fields are required'});
 
-    let newfullname = fullname.toLowerCase().replace(/ /g, '');
-
-
     const user_email = await User.findOne({email});
     if(user_email) return res.status(400).json({success: false, msg: 'Email already exists'});
 

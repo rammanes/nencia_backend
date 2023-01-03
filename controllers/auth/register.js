@@ -5,7 +5,7 @@ const randomstring = require('randomstring');
 
 const createNewUser = async (req, res, next) => {
   try {
-    let { fullname, phonenumber, email, password } = req.body;
+    let { fullname, phonenumber, email, password, ProfilePicture } = req.body;
     if(!fullname || !phonenumber || !email || !password ) return res.status(400).json({success: false, msg: 'All fields are required'});
 
     // let newfullname = fullname.toLowerCase().replace(/ /g, '');
@@ -30,7 +30,8 @@ const createNewUser = async (req, res, next) => {
       phonenumber,
       role: newRole,
       password: hashedPassword,
-      secretToken
+      secretToken,
+      ProfilePicture
     });
 
     await newUser.save();

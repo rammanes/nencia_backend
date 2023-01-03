@@ -3,18 +3,15 @@ const { model, Schema } = mongoose;
 
 let orderSchema = new Schema({
 
- ownerId: {
-        type: String,
-        required: true,
-      },
+    orderOwner: {
+        type: Schema.Types.ObjectId,
+        ref: 'user'},
       products: [{
-productId:{
-        type: String,
+product:{
+    type: Schema.Types.ObjectId,
+    ref: 'product'
      },
-     quantity:{
-        type: Number,
-        default: 1
-     }
+     quantity:Number
 }] ,
 amount: {
     type: Number,
@@ -32,5 +29,5 @@ status:{
 }, { timestamps: true });
 
 module.exports = {
-    Product: model('order', orderSchema)
+    Order: model('order', orderSchema)
 }

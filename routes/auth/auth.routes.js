@@ -29,6 +29,6 @@ router.post('/forgot-password', forgotPassword);
 router.post('/reset-password/:token', resetPassword);
 router.post('/add-follower/:vendorId', verifyToken, addFollower);
 
-router.post('/upload-profile-picture/:userId', upload.single('ProfilePicture'), addProfilePicture);
+router.post('/upload-profile-picture/:userId', verifyToken, upload.single('ProfilePicture'), addProfilePicture);
 
 module.exports = router;

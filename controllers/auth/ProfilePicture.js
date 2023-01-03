@@ -4,7 +4,7 @@ const cloudinarySetup = require('../../config/cloudinarySetup');
 
 const addProfilePicture = async (req, res, next) => {
   try {
-    let { userId } = req.params;
+    let  userId  = req.user._id;
     let objectField = {};
     if (req.file) {
         await cloudinarySetup();
@@ -27,5 +27,4 @@ const addProfilePicture = async (req, res, next) => {
     return res.status(500).json({msg: err.message});
   }
 }
-
 module.exports = addProfilePicture;

@@ -15,7 +15,6 @@ let orderSchema = new Schema(
         },
         quantity: Number,
         price: Number,
-        
       },
     ],
     totalPrice: {
@@ -23,8 +22,8 @@ let orderSchema = new Schema(
       required: true,
     },
     address: {
-        type: Schema.Types.ObjectId,
-        ref: "address",
+      type: Schema.Types.ObjectId,
+      ref: "address",
     },
     status: {
       type: String,

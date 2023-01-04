@@ -4,7 +4,6 @@ const loginSchema = Joi.object({
     password: Joi.string().min(6).required()
 });
 
-
 const registerSchema = Joi.object({
     fullname: Joi.string().min(8).required(),
     phonenumber: Joi.string().trim().regex(/^\+?[1-9]\d{1,14}$/),

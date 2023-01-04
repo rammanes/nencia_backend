@@ -1,4 +1,4 @@
-const sendEmail = require('../config/mailer');
+const sendEmail = require("../config/mailer");
 
 const welcomeEmail = async (req, fullname, email, secretToken) => {
   const html = `
@@ -19,12 +19,7 @@ const welcomeEmail = async (req, fullname, email, secretToken) => {
     <strong>Nencia Team</strong>
   `;
 
-  await sendEmail(
-    'support@nencia.com',
-    email,
-    'Welcome to Nencia',
-    html
-  );
-}
+  await sendEmail("support@nencia.com", email, "Welcome to Nencia", html);
+};
 
 module.exports = welcomeEmail;

@@ -12,8 +12,7 @@ router.route("/get-banks").get(getBanks);
 
 router.route("/verify-account").get(verifyAccount);
 
-router.route("/add-bank-details/:vendorId").post( addBankDetails);
-
+router.route("/add-bank-details/:vendorId").post(addBankDetails);
 
 router.route("/profile-settings/:vendorId").post(userSettings);
 

@@ -10,9 +10,9 @@ let userSchema = new Schema(
     password: String,
     businessLogo: String,
     ProfilePicture: {
-      type: String, 
-      default: null
-  },
+      type: String,
+      default: null,
+    },
     secretToken: String,
     businessName: String,
     businessAddress: String,
@@ -33,9 +33,9 @@ let userSchema = new Schema(
     refundPolicy: String,
     dressAdjustmentPolicy: String,
     sizeChart: {
-      type: String, 
-      default: null
-  },
+      type: String,
+      default: null,
+    },
     address: [
       {
         type: Schema.Types.ObjectId,

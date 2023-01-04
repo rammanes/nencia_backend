@@ -32,7 +32,10 @@ let userSchema = new Schema(
     },
     refundPolicy: String,
     dressAdjustmentPolicy: String,
-    sizeChart: String,
+    sizeChart: {
+      type: String, 
+      default: null
+  },
     address: [
       {
         type: Schema.Types.ObjectId,

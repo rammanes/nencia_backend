@@ -5,7 +5,7 @@ const getProduct = async(req, res) => {
         let { productId } = req.params;
         let product = await Product.findOne({_id: productId});
         if (!product) return res.status(500).json({ success: false, msg: 'No Product Found' });
-        return res.status(201).json({
+        return res.status(200).json({
           success: true,
           msg: 'successfully found product',
           product

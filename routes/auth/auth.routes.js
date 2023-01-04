@@ -10,15 +10,18 @@ const forgotPassword = require('../../controllers/auth/forgotPassword')
 const resetPassword = require('../../controllers/auth/resetPassword')
 const addProfilePicture = require('../../controllers/auth/ProfilePicture')
 const getUser = require('../../controllers/auth/getUser')
-const addFollower = require('../../controllers/auth/addFollower')
+const addFollower = require('../../controllers/auth/addFollower');
+const { registerSchema, loginSchema } = require('../../middlewares/validation');
+const validation = require('express-joi-validation').createValidator({});
 
 
 
-router.post('/register', createNewUser);
+
+router.post('/register', validation.body(registerSchema), createNewUser);
 router.post('/register-vendor', upload.single('businessLogo'), createNewVendor);
 
 
-router.post('/login', loginUser);
+router.post('/login', validation.body(loginSchema), loginUser);
 router.route('/get-user/:userId')
     .get(getUser); 
 

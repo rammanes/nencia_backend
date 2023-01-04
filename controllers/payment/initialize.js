@@ -2,7 +2,7 @@ const { initializePayment}  = require('../../paystack');
 
 const getPaymentWindow = async(req, res) => {
     try { 
-      let {productAmount} = req.body;
+      let {productAmount, cartID} = req.body;
       let payment = productAmount * 100;
         const user_data = {
             email: req.user.email,
@@ -10,6 +10,7 @@ const getPaymentWindow = async(req, res) => {
           };    
           user_data.metadata = {
             user_id: req.user.id,
+            cart_id: cartID
           };
           let promise = initializePayment(user_data);
 

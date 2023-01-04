@@ -16,15 +16,9 @@ const createNewEvent = async (req, res) => {
         ticketType,
         private,
         donation,
-        bankName,
-        accountNumber,
-        accountName,
+        accountDetails,
         fashionType,
-        totalTicket,
-        categoryName,
-        categoryPrice,
-        ticketDescription,
-        ticketPerks
+        categories
     } = req.body;
 
 
@@ -52,20 +46,8 @@ const createNewEvent = async (req, res) => {
         private,
         donation,
         fashionType,
-        accountDetails:{
-            bankName,
-            accountNumber,
-            accountName,
-            },
-            categories:[
-                {
-                    totalTicket: totalTicket,
-                    categoryName:  categoryName,
-                    categoryPrice:  categoryPrice,
-                    description: ticketDescription,
-                    ticketPerks: ticketPerks
-                }
-            ],
+        accountDetails,
+            categories,
         owner: user
     });
 

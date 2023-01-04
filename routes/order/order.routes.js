@@ -5,6 +5,7 @@ const getPaymentWindow = require('../../controllers/payment/initialize')
 const createAddress = require('../../controllers/order/createAddress');
 const getUserAddress = require('../../controllers/order/getAddress');
 const paystackWebHook = require('../../controllers/payment/webhooks');
+const addToCart = require('../../controllers/cart/addToCart');
 
 
 
@@ -13,6 +14,9 @@ router.route('/create-address/:userId')
 
     router.route('/initialize-payment')
     .post(verifyToken, getPaymentWindow)
+
+    router.route('/create-cart')
+    .post(verifyToken, addToCart)
 
     router.route('/webhook')
     .post(paystackWebHook)

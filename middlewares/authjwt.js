@@ -13,24 +13,19 @@ const verifyToken = async (req, res, next) => {
   });
 }
 const verifyTokenVendor = async (req, res, next) => {
-  verifyToken(req, res, () => {
     if(req.user.role === "Vendor"){
       next();
     }else{
       return res.status(401).json({msg: 'You are not allowed to perform this action'});
     }
-  })
 
 }
 const verifyTokenAdmin = async (req, res, next) => {
-  verifyToken(req, res, () => {
     if(req.user.role === "Admin"){
       next();
     }else{
       return res.status(401).json({msg: 'You are not allowed to perform this action'});
     }
-  })
-
 }
 
-module.exports = verifyToken;
+module.exports = verifyToken

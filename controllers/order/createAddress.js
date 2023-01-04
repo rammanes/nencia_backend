@@ -4,8 +4,9 @@ const { Address } = require('../../models/Address');
 const createAddress = async(req, res) => {
     try {
         let { fullname, phonenumber, address, city, state, country, zipcode } = req.body
-        let { userId } = req.params;
-        let user = await User.findOne({_id: userId});
+        let  userId  = req.user._id
+       
+        let foundUser = await User.findOne({_id: userId});
         let addressOwner = req.user._id
         const newAddress = new Address({
           user: addressOwner,
@@ -18,8 +19,9 @@ const createAddress = async(req, res) => {
                 zipcode
         });
         await newAddress.save(); 
-        user.address.push(newAddress._id);
-        await user.save();
+        
+        foundUser.address.push(newAddress._id);
+        await foundUser.save();
         return res.status(201).json({
           success: true,
           msg: 'Address created Successfully',

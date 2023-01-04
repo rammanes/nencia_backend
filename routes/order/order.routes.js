@@ -9,7 +9,7 @@ const addToCart = require('../../controllers/cart/addToCart');
 
 
 
-router.route('/create-address/:userId')
+router.route('/create-address')
     .post(verifyToken, createAddress)
 
     router.route('/initialize-payment')
@@ -21,8 +21,8 @@ router.route('/create-address/:userId')
     router.route('/webhook')
     .post(paystackWebHook)
 
-router.route('/get-address/:userId')
-    .get(getUserAddress);
+router.route('/get-address')
+    .get(verifyToken, getUserAddress);
 
 
 module.exports = router;

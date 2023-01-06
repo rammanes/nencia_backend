@@ -6,7 +6,7 @@ const createAddress = require("../../controllers/order/createAddress");
 const getUserAddress = require("../../controllers/order/getAddress");
 const paystackWebHook = require("../../controllers/payment/webhooks");
 const addToCart = require("../../controllers/cart/addToCart");
-const getAllCart = require("../../controllers/cart/getcart");
+const getAllCart = require("../../controllers/cart/getCart");
 
 router.route("/create-address").post(verifyToken, createAddress);
 

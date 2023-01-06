@@ -3,7 +3,7 @@ const { User } = require('../../models/User');
 const getUser = async(req, res) => {
     try {
         let { userId } = req.params;
-        let user = await User.findOne({_id: userId}).populate("followers.user")
+        let user = await User.findOne({_id: userId}).populate("followers").populate("following")
         if (!user) return res.status(500).json({ success: false, msg: 'No User found' });
         return res.status(200).json({
           success: true,

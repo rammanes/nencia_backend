@@ -4,7 +4,7 @@ const getProduct = async (req, res) => {
   try {
     let { productId } = req.params;
     let product = await Product.findOne({ _id: productId }).populate(
-      "likes.user"
+      "likes"
     );
     if (!product)
       return res.status(500).json({ success: false, msg: "No Product Found" });

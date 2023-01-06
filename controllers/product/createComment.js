@@ -13,7 +13,6 @@ const createComment = async (req, res) => {
       user: req.user._id,
     });
     await newComment.save();
-    console.log(post);
     post.comments.push(newComment._id);
     await post.save();
     return res.status(201).json({

@@ -29,10 +29,10 @@ let productSchema = new Schema(
     ],
     likes: [
       {
-        user: {
+       
           type: Schema.Types.ObjectId,
-          ref: "user",
-        },
+          ref: "user"
+       
       },
     ],
   },

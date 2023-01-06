@@ -4,7 +4,7 @@ const verifyToken = require("../../middlewares/authjwt");
 const getPaymentWindow = require("../../controllers/payment/initialize");
 const createAddress = require("../../controllers/order/createAddress");
 const getUserAddress = require("../../controllers/order/getAddress");
-const paystackWebHook = require("../../controllers/payment/webhooks");
+const paystackWebHook = require("../../controllers/payment/paystack-webhook");
 const addToCart = require("../../controllers/cart/addToCart");
 const getAllCart = require("../../controllers/cart/getCart");
 

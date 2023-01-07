@@ -15,7 +15,12 @@ let userSchema = new Schema(
   },
     secretToken: String,
     businessName: String,
-    businessAddress: String,
+    businessAddress: {
+      latitude: String,
+      longitude:String,
+      longName: String,
+      shortName: String
+    },
     businessDescription: String,
     CAC_Reg_No: String,
 

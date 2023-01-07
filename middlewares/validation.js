@@ -11,6 +11,26 @@ const registerSchema = Joi.object({
     password: Joi.string().min(6).required()
 });
 
+const  cartSchema = Joi.object({
+    fullname: Joi.string().min(8).required(),
+    phonenumber: Joi.string().trim().regex(/^\+?[1-9]\d{1,14}$/),
+    address: Joi.string().min(15).required(),
+    city: Joi.string().min(4).required(),
+    state: Joi.string().min(4).required(),
+    addre: Joi.string().min(15).required(),
+    country: Joi.string().min(15).required(),
+    zipcode: Joi.string().min(5).required()
+
+});
+
+
+const productSchema = Joi.object({
+    productPrice: Joi.string().min(8).required(),
+    description: Joi.string().min(10).required(),
+    address: Joi.string().min(15).required(),
+    sizes: Joi.array().min(4).required(),
+    yards: Joi.string().min(4).required()
+});
 const addressSchema = Joi.object({
     fullname: Joi.string().min(8).required(),
     phonenumber: Joi.string().trim().regex(/^\+?[1-9]\d{1,14}$/),

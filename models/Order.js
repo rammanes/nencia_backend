@@ -13,6 +13,10 @@ let orderSchema = new Schema(
           type: Schema.Types.ObjectId,
           ref: "product",
         },
+        vendorId: {
+          type: Schema.Types.ObjectId,
+          ref: "user",
+        },
         quantity: Number,
         price: Number,
       },
@@ -27,8 +31,8 @@ let orderSchema = new Schema(
     },
     status: {
       type: String,
-      enum: ["pending", "processing", "delivery", "successfull"],
-      default: "pending",
+      enum: [ "processing", "delivery", "completed"],
+      default: "processing",
     },
   },
   { timestamps: true }

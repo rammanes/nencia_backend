@@ -11,4 +11,16 @@ const registerSchema = Joi.object({
     password: Joi.string().min(6).required()
 });
 
-module.exports = {registerSchema, loginSchema };
+const addressSchema = Joi.object({
+    fullname: Joi.string().min(8).required(),
+    phonenumber: Joi.string().trim().regex(/^\+?[1-9]\d{1,14}$/),
+    address: Joi.string().min(15).required(),
+    city: Joi.string().min(4).required(),
+    state: Joi.string().min(4).required(),
+    addre: Joi.string().min(15).required(),
+    country: Joi.string().min(15).required(),
+    zipcode: Joi.string().min(5).required()
+
+});
+
+module.exports = {registerSchema, loginSchema, addressSchema };

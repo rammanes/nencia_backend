@@ -13,6 +13,10 @@ let cartSchema = new Schema(
           type: Schema.Types.ObjectId,
           ref: "product",
         },
+        vendorId: {
+          type: Schema.Types.ObjectId,
+          ref: "user",
+        },
         quantity: Number,
         price: Number,
       },

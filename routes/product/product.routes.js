@@ -10,6 +10,8 @@ const postLike = require("../../controllers/product/createLike");
 const createCategory = require("../../controllers/product/createCategory");
 const getAllCategories = require("../../controllers/product/getCategory");
 const getProduct = require("../../controllers/product/getProduct");
+const editProduct = require("../../controllers/product/editProduct");
+const deleteProduct = require("../../controllers/product/deleteProduct");
 
 router
   .route("/create-product")
@@ -26,6 +28,12 @@ router.route("/get-product/:productId").get(getProduct);
 router.route("/get-vendor-products/:userId").get(getVendorProduct);
 
 router.route("/create-comment/:postId").post(verifyToken, createComment);
+
+router.route("/edit-product/:productId").patch(verifyToken, editProduct);
+
+router.route("/delete-product/:productId").delete(verifyToken, deleteProduct);
+
+
 
 router.route("/post-like/:postId").post(verifyToken, postLike);
 module.exports = router;

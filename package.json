@@ -30,6 +30,7 @@
     "ngrok": "^4.3.3",
     "nodemailer": "^6.7.0",
     "paystack-api": "^2.0.6",
-    "randomstring": "^1.2.1"
+    "randomstring": "^1.2.1",
+    "swagger-jsdoc": "^6.0.0"
   }
 }

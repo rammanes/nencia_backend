@@ -4,7 +4,7 @@ exports.getCountries = async () => {
     const options = {
       url: "https://topship-staging.africa/api/get-countries",
       headers: {
-        authorization: `Bearer ${process.env.TOPSHIP-STAGING_KEY}`,
+        authorization: `Bearer ${process.env.TOPSHIP_STAGING_KEY}`,
       },
       method: "GET",
     };
@@ -12,6 +12,7 @@ exports.getCountries = async () => {
       try {
         const data = await axios.request(options);
         resolve(data);
+        
       } catch (error) {
         console.log(error);
         reject(error);
@@ -25,7 +26,7 @@ exports.getCountries = async () => {
     const options = {
       url: `https://topship-staging.africa/api/get-states?countryCode=${countryCode}`,
       headers: {
-        authorization: `Bearer ${process.env.TOPSHIP-STAGING_KEY}`,
+        authorization: `Bearer ${process.env.TOPSHIP_STAGING_KEY}`,
       },
       method: "GET",
     };
@@ -46,7 +47,7 @@ exports.getCountries = async () => {
     const options = {
       url: `https://topship-staging.africa/api/get-states?countryCode=${countryCode}`,
       headers: {
-        authorization: `Bearer ${process.env.TOPSHIP-STAGING_KEY}`,
+        authorization: `Bearer ${process.env.TOPSHIP_STAGING_KEY}`,
       },
       method: "GET",
     };
@@ -67,7 +68,7 @@ exports.getCountries = async () => {
         const options = {
           url: `https://topship-staging.africa/api/get-shipment-rate?shipmentDetail=${shipmentDetails}`,
           headers: {
-            authorization: `Bearer ${process.env.TOPSHIP-STAGING_KEY}`,
+            authorization: `Bearer ${process.env.TOPSHIP_STAGING_KEY}`,
           },
           method: "GET",
         };
@@ -88,7 +89,7 @@ exports.bookShipment = async (form) => {
   const options = {
     url: "https://topship-staging.africa/api/save-shipment",
     headers: {
-      authorization: `Bearer ${process.env.TOPSHIP-STAGING_KEY}`,
+      authorization: `Bearer ${process.env.TOPSHIP_STAGING_KEY}`,
       "Content-Type": "application/json",
     },
     method: "POST",
@@ -111,7 +112,7 @@ exports.shipmentPayment = async (form) => {
     const options = {
       url: "https://topship-staging.africa/api/pay-from-wallet",
       headers: {
-        authorization: `Bearer ${process.env.TOPSHIP-STAGING_KEY}`,
+        authorization: `Bearer ${process.env.TOPSHIP_STAGING_KEY}`,
         "Content-Type": "application/json",
       },
       method: "POST",
@@ -134,7 +135,7 @@ exports.trackShipment = async (trackingId) => {
     const options = {
       url: `https://topship-staging.africa/api/track-shipment?trackingId=${trackingId}`,
       headers: {
-        authorization: `Bearer ${process.env.TOPSHIP-STAGING_KEY}`,
+        authorization: `Bearer ${process.env.TOPSHIP_STAGING_KEY}`,
       },
       method: "GET",
     };
@@ -154,7 +155,7 @@ exports.cancelShipment = async (form) => {
     const options = {
       url: "https://topship-staging.africa/api/cancel-shipment",
       headers: {
-        authorization: `Bearer ${process.env.TOPSHIP-STAGING_KEY}`,
+        authorization: `Bearer ${process.env.TOPSHIP_STAGING_KEY}`,
         "Content-Type": "application/json",
       },
       method: "POST",
@@ -177,7 +178,7 @@ exports.getShipment = async (shipmentId) => {
     const options = {
       url: `https://topship-staging.africa/api/get-shipment/${shipmentId}`,
       headers: {
-        authorization: `Bearer ${process.env.TOPSHIP-STAGING_KEY}`,
+        authorization: `Bearer ${process.env.TOPSHIP_STAGING_KEY}`,
       },
       method: "GET",
     };
@@ -199,7 +200,7 @@ exports.getShipment = async (details) => {
     const options = {
       url: `https://topship-staging.africa/api/get-shipments?filter=${details}`,
       headers: {
-        authorization: `Bearer ${process.env.TOPSHIP-STAGING_KEY}`,
+        authorization: `Bearer ${process.env.TOPSHIP_STAGING_KEY}`,
       },
       method: "GET",
     };

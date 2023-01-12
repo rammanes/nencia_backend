@@ -1,18 +1,20 @@
-const { Product } = require("../../models/Product");
-const editProduct = async (req, res, next) => {
+const { Address } = require("../../models/Address");
+
+
+const editAddress = async (req, res, next) => {
 try {
-    const { productId } = req.params;
+    const { addressId } = req.params;
     const update = { $set: req.body };
     const options = { returnOriginal: false };
 
-    const result = await Product.findOneAndUpdate(
-      { _id: productId },
+    const result = await Address.findOneAndUpdate(
+      { _id: addressId },
       update,
       options
     );
     return res.status(201).json({
         success: true,
-        msg: "Product edited successfully",
+        msg: "Address edited successfully",
         result,
       });
   } catch (error) {
@@ -20,4 +22,4 @@ try {
     res.status(500).json({ error: error.message });
   }
 }
-module.exports = editProduct
+module.exports = editAddress

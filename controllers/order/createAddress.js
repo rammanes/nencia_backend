@@ -8,6 +8,8 @@ const createAddress = async (req, res) => {
     let userId = req.user._id;
 
     let foundUser = await User.findOne({ _id: userId });
+    if (!foundUser)
+    return res.status(500).json({ success: false, msg: "No user found" });
     let addressOwner = req.user._id;
     const newAddress = new Address({
       user: addressOwner,

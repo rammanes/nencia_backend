@@ -45,7 +45,7 @@ exports.getCountries = async () => {
 
   exports.getCities = async (countryCode) => {
     const options = {
-      url: `https://topship-staging.africa/api/get-states?countryCode=${countryCode}`,
+      url: `https://topship-staging.africa/api/get-cities?countryCode=${countryCode}`,
       headers: {
         authorization: `Bearer ${process.env.TOPSHIP_STAGING_KEY}`,
       },

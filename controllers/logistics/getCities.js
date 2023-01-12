@@ -7,7 +7,7 @@ const getCity = async(req, res) => {
         
 promise.then(
   response => {
-  let countries = response.data;
+  let cities = response.data;
   return res.status(201).json({
     success: true,
     msg: 'get cities successfully',

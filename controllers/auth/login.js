@@ -14,8 +14,8 @@ const loginUser = async (req, res, next) => {
       $or: [
         { email: userInput }, 
         { phonenumber: userInput }
-    ] });
-
+    ] })
+    .populate("address");
     if (!findUser) return res.status(400).json({success: false, msg: 'User does not exist'});
 
     if (!findUser.confirmed) return res.status(401).json({success: false, msg: 'Please check your email to confirm your identity'});

@@ -1,4 +1,4 @@
-const sendEmail = require('../config/mailer');
+const sendEmail = require("../config/mailer");
 
 const passwordEmail = async (req, token, inputEmail, fullname) => {
   const html = `
@@ -18,11 +18,11 @@ const passwordEmail = async (req, token, inputEmail, fullname) => {
   `;
 
   await sendEmail(
-    'support@waawchat.com',
+    "support@waawchat.com",
     inputEmail,
-    'Welcome to WAAWChat',
+    "Welcome to WAAWChat",
     html
   );
-}
+};
 
 module.exports = passwordEmail;

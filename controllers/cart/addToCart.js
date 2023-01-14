@@ -1,7 +1,19 @@
 const { Cart } = require("../../models/Cart");
+const cloudinary = require("cloudinary").v2;
+const cloudinarySetup = require("../../config/cloudinarySetup");
 
 const addToCart = async (req, res) => {
-  let { products, totalPrice, addressID } = req.body;
+  let { products, totalPrice, measurement, note, addressID } = req.body;
+
+  let image = "";
+
+  if (req.file) {
+    await cloudinarySetup();
+    const uploadedMedia = await cloudinary.uploader.upload(req.file.path, {
+      resource_type: "auto",
+    });
+    image = uploadedMedia.secure_url;
+  }
 
   let user = req.user._id;
 
@@ -9,6 +21,9 @@ const addToCart = async (req, res) => {
     cartOwner: user,
     products,
     totalPrice,
+    measurement,
+    buyerPhoto: image,
+    note,
     address: addressID,
   });
   if (!newCart)

@@ -11,14 +11,18 @@ const getAllOrder = require("../../controllers/order/getOrders");
 const getVendorOrders = require("../../controllers/order/getVendorOrder");
 const editAddress = require("../../controllers/order/editAddress");
 const deleteAddress = require("../../controllers/order/deleteAddress");
+const addMeasurement = require("../../controllers/cart/addMeasurement");
+const upload = require("../../config/multerSetup");
 
 router.route("/create-address").post(verifyToken, createAddress);
 
 router.route("/initialize-payment").post(verifyToken, getPaymentWindow);
 
-router.route("/create-cart").post(verifyToken, addToCart);
+router.route("/create-cart").post(verifyToken, upload.single("userPicture"), addToCart);
 
 router.route("/get-carts").get(verifyToken, getAllCart);
+
+router.route("/add-measurement/:cartId").patch(verifyToken, upload.single("userPicture"), addMeasurement);
 
 router.route("/get-orders").get(verifyToken, getAllOrder);
 
@@ -32,7 +36,4 @@ router.route("/edit-address/:addressId").patch(verifyToken, editAddress);
 
 router.route("/delete-address/:addressId").delete(verifyToken, deleteAddress);
 
-
-
 module.exports = router;
-

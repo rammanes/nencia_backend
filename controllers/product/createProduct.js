@@ -5,8 +5,6 @@ const cloudinarySetup = require("../../config/cloudinarySetup");
 const createNewProduct = async (req, res) => {
   let { productPrice, description, productType, sizes, yards } = req.body;
 
-  // if (!productName) return res.status(400).json({ msg: 'Please upload product' });
-
   let image = "";
 
   if (req.file) {
